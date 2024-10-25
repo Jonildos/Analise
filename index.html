@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Landing Page - Rolagem Horizontal</title>
+    <!-- Link para a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e; /* Azul escuro */
+            color: #ffffff;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Estilo da barra de navegação */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ff7f50;
+        }
+
+        /* Container de rolagem horizontal */
+        .scroll-container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 400vw; /* Para 4 seções */
+            scroll-behavior: smooth;
+        }
+
+        /* Seções */
+        .section {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Estilos individuais das seções */
+        .section:nth-child(1) {
+            background: linear-gradient(135deg, #5d3fd3, #121212);
+        }
+
+        .section:nth-child(2) {
+            background: linear-gradient(135deg, #202020, #5d3fd3);
+        }
+
+        .section:nth-child(3) {
+            background: linear-gradient(135deg, #5d3fd3, #202020);
+        }
+
+        .section:nth-child(4) {
+            background: linear-gradient(135deg, #202020, #121212);
+        }
+
+        /* Título no canto superior esquerdo com margem */
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            font-size: 36px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Texto centralizado */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6734a;
+        }
+
+        /* Efeito de fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Adicionando animações e ilustrações dinâmicas */
+        .bg-animation {
+            position: absolute;
+            bottom: -150px;
+            left: 50%;
+            width: 300%;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: moveBg 15s infinite linear;
+        }
+
+        @keyframes moveBg {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* Footer fixo */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #1e1e1e;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#section1">Home</a>
+            <a href="#section2">Matérias</a>
+            <a href="#section3">Currículo</a>
+            <a href="#section4">Página Pessoal</a>
+        </nav>
+    </header>
+
+    <div class="scroll-container">
+        <!-- Seção 1: Home -->
+        <section class="section" id="section1">
+            <h1>Home</h1>
+            <div class="content">
+                <p>Esta é a página inicial onde você pode navegar pelos meus projetos, currículo e mais.</p>
+                <button>Explore Mais</button>
+            </div>
+            <div class="bg-animation"></div>
+        </section>
+
+        <!-- Seção 2: Matérias -->
+        <section class="section" id="section2">
+            <h1>Matérias</h1>
+            <div class="content">
+                <p>Aqui você encontra uma lista das principais matérias que estou estudando e que fazem parte do meu foco acadêmico.</p>
+                <button>Ver Matérias</button>
+            </div>
+            <div class="bg-animation"></div>
+        </section>
+
+        <!-- Seção 3: Currículo -->
+        <section class="section" id="section3">
+            <h1>Currículo</h1>
+            <div class="content">
+                <p>Confira meu currículo atualizado e veja minhas experiências e habilidades profissionais.</p>
+                <button>Baixar Currículo</button>
+            </div>
+            <div class="bg-animation"></div>
+        </section>
+
+        <!-- Seção 4: Página Pessoal -->
+        <section class="section" id="section4">
+            <h1>Página Pessoal</h1>
+            <div class="content">
+                <p>Saiba mais sobre mim, meus hobbies e o que me motiva no dia a dia.</p>
+                <button>Visitar Página Pessoal</button>
+            </div>
+            <div class="bg-animation"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Instagram: <a href="https://instagram.com/jonaz.exe" target="_blank" style="color: white;">@jonaz.exe</a></p>
+    </footer>
+
+    <script>
+        // Detectar rolagem e converter em rolagem horizontal
+        window.addEventListener('wheel', function(event) {
+            const container = document.querySelector('.scroll-container');
+            if (event.deltaY > 0) {
+                container.scrollLeft += 100;  // rola para a direita
+            } else {
+                container.scrollLeft -= 100;  // rola para a esquerda
+            }
+        });
+    </script>
+
+</body>
+</html>
